@@ -11,6 +11,9 @@ BBCar car(pin5, pin6, servo_ticker);
 void park(Arguments *in, Reply *out);
 RPCFunction rpcpark(&park, "park");
 
+double d1, d2;
+char direction;
+
 
 int main(void) {
     char buf[256], outbuf[256];
@@ -35,6 +38,28 @@ int main(void) {
 void park(Arguments *in, Reply *out)  
 {
 
-    printf("park\n");
+    double velocity;
+    double t1;
+    double t2;
 
+    printf("park\n");
+    d1 = in->getArg<double>();
+    d2 = in->getArg<double>();
+    direction = in->getArg<int>();
+
+    velocity = 15.4;
+    t1 = 1000*(d1+15)/velocity;
+    t2 = 1000*(d2+5)/velocity;
+
+    car.goStraight(-100);
+    ThisThread::sleep_for(t1);
+    car.stop();
+    ThisThread::sleep_for(500ms);
+    car.turn(100, 1);
+    ThisThread::sleep_for(600ms);
+    car.stop();
+    ThisThread::sleep_for(500ms);
+    car.goStraight(-100);
+    ThisThread::sleep_for(t2);
+    car.stop();
 }
