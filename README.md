@@ -15,6 +15,6 @@ BufferedSerial xbee(D1, D0);
 ![](https://i.imgur.com/xSfQLSf.png)
 ## 2. Follow Line
 * Put the car on the straight line and the car will follow the line.
-
+![](https://i.imgur.com/L8a8grA.png)
 ## 3. Apriltag navigation
 * Let the car face apriltag by some dergree or directly, then the car will follow apriltag.
