@@ -12,7 +12,7 @@ BufferedSerial xbee(D1, D0);
 * use "sudo python3 xbee.py" to compile it.
 * use "/park/run d2 d1 k" to sen RPC command, where k is the direction(0,1,2,3).
 * Then remote xbee will receive the position parameter and start to park.
-
+![](https://i.imgur.com/xSfQLSf.png)
 ## 2. Follow Line
 * Put the car on the straight line and the car will follow the line.
 
