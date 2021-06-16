@@ -18,4 +18,3 @@ BufferedSerial xbee(D1, D0);
 
 ## 3. Apriltag navigation
 * Let the car face apriltag by some dergree or directly, then the car will follow apriltag.
-![](https://i.imgur.com/PFTzDeE.png)
