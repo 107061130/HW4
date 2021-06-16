@@ -12,7 +12,7 @@ void park(Arguments *in, Reply *out);
 RPCFunction rpcpark(&park, "park");
 
 double d1, d2;
-char direction;
+int direction;
 
 
 int main(void) {
@@ -37,8 +37,9 @@ int main(void) {
 
 void park(Arguments *in, Reply *out)  
 {
+    printf("park\n");
 
-    double velocity;
+    double velocity = 16;
     double t1;
     double t2;
 
@@ -48,9 +49,16 @@ void park(Arguments *in, Reply *out)
     direction = in->getArg<int>();
 
     velocity = 15.4;
-    t1 = 1000*(d1+15)/velocity;
+    t1 = 1000*(d1+13)/velocity;
     t2 = 1000*(d2+5)/velocity;
 
+
+    for (i = 0; i < direction; i++) {
+      car.turn(100, 1);
+      ThisThread::sleep_for(600ms);
+      car.stop();
+      ThisThread::sleep_for(500ms);
+    }
     car.goStraight(-100);
     ThisThread::sleep_for(t1);
     car.stop();
@@ -62,4 +70,5 @@ void park(Arguments *in, Reply *out)
     car.goStraight(-100);
     ThisThread::sleep_for(t2);
     car.stop();
+    
 }
